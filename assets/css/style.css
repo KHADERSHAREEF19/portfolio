@@ -396,6 +396,112 @@ body {
   
   .hero-list .list-link:is(:hover, :focus) ion-icon { transform: rotate(-45deg); }
   
+  /* Hero: primary actions */
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-block-end: 26px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-14, 1.4rem);
+    font-weight: var(--fw-600);
+    line-height: 1;
+    padding: 14px 22px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .btn ion-icon { font-size: 18px; }
+
+  .btn-primary {
+    background-color: var(--theme-color);
+    color: var(--white);
+  }
+
+  .btn-primary:is(:hover, :focus-visible) {
+    background-color: var(--black);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--black);
+    border-color: var(--black_10);
+  }
+
+  .btn-outline:is(:hover, :focus-visible) {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+    transform: translateY(-2px);
+  }
+
+  /* Hero: role line, keyword chips, availability */
+  .hero-role-line {
+    color: var(--dim-gray);
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-16, 1.6rem);
+    font-weight: var(--fw-500);
+    line-height: 1.6;
+    margin-block: 14px 22px;
+    max-width: 52ch;
+  }
+
+  .hero-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block-end: 24px;
+  }
+
+  .hero-keywords li {
+    background-color: var(--white);
+    border: 1px solid var(--black_10);
+    color: var(--black);
+    border-radius: 999px;
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-13);
+    font-weight: var(--fw-500);
+    padding: 6px 12px;
+  }
+
+  .hero-availability {
+    display: grid;
+    gap: 10px;
+    margin-block-end: 26px;
+    border-inline-start: 3px solid var(--theme-color);
+    padding-inline-start: 14px;
+  }
+
+  .hero-availability li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--dim-gray);
+    font-size: var(--fs-14, 1.4rem);
+    line-height: 1.5;
+  }
+
+  .hero-availability li ion-icon {
+    color: var(--theme-color);
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-block-start: 2px;
+  }
+
+  .hero-availability strong { color: var(--black); font-weight: var(--fw-600); }
+
   .exp-list .list-item {
     display: flex;
     justify-content: flex-start;
@@ -465,18 +571,94 @@ body {
     #TIMELINE
   \*-----------------------------------*/
   
-  .timeline-item {
-    padding-block: 20px;
-    font-size: var(--fs-18);
+  /* Education — compact centered cards (not a full-width table) */
+  .education { background-color: var(--white); }
+
+  .education .container { max-width: 1000px; margin-inline: auto; }
+
+  .education-list {
     display: grid;
-    gap: 15px;
+    gap: 20px;
+    grid-template-columns: 1fr;
   }
-  
-  .timeline-item:not(:last-child) { border-block-end: 1px solid var(--black_10); }
-  
-  .timeline-item .item-period { font: unset; }
-  
-  .timeline-item .item-title { color: var(--black); }
+
+  .education-card {
+    background-color: var(--cultured);
+    border: 1px solid var(--black_10);
+    border-top: 4px solid var(--theme-color);
+    border-radius: var(--radius-10);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    text-align: center;
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+    align-content: start;
+  }
+
+  .education-card > * { margin: 0; }
+
+  .education-card--featured {
+    background-color: var(--black);
+    border-color: var(--black);
+  }
+
+  .education-card--featured .education-title,
+  .education-card--featured .education-school { color: var(--white); }
+
+  .education-card--featured .education-meta { color: var(--gray-x-11); }
+
+  .education-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--theme-color);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+  }
+
+  .education-card--featured .education-icon {
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  .education-period {
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-13);
+    font-weight: var(--fw-600);
+    color: var(--theme-color);
+    background-color: var(--white);
+    border: 1px solid var(--black_10);
+    border-radius: 999px;
+    padding: 4px 12px;
+  }
+
+  .education-card--featured .education-period {
+    background-color: var(--white_10);
+    border-color: transparent;
+    color: var(--white);
+  }
+
+  .education-title {
+    color: var(--black);
+    font-family: var(--ff-poppins);
+    font-size: var(--fs-18);
+    font-weight: var(--fw-700);
+    line-height: 1.3;
+  }
+
+  .education-school {
+    color: var(--black);
+    font-family: var(--ff-poppins);
+    font-weight: var(--fw-500);
+  }
+
+  .education-meta {
+    color: var(--dim-gray);
+    font-size: var(--fs-13);
+  }
   
   
   
@@ -745,9 +927,9 @@ body {
      * TIMELINE
      */
   
-    .timeline-item {
+    .education-list {
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 24px;
     }
   
   
@@ -944,11 +1126,6 @@ body {
       right: 50px;
       width: 410px;
       height: 620px;
-      background-image: url('../images/portfolio-2.jpg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 105%;
-      background-attachment: fixed;
       overflow: hidden;
     }
   
@@ -958,7 +1135,7 @@ body {
      * TIMELINE
      */
   
-    .timeline-item { padding-block: 30px; }
+    .education-card { padding: 32px 28px; }
   
   
   
@@ -1130,11 +1307,6 @@ body {
   100% { transform: rotate(-360deg); }
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /* Terminal text styling */
 .typing-container {
   font-family: 'Courier New', Courier, monospace;
@@ -1175,23 +1347,32 @@ body {
   border-left: 3px solid #ff9c1a; /* The straight vertical line */
 }
 
-.timeline-item {
+.experience .timeline-item {
   position: relative;
-  width: 170%; 
-  margin-bottom: 50px; 
-  opacity: 0; 
-  transform: translateX(-40px); 
+  width: 100%;
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateX(-40px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.timeline-item:last-child {
+.experience .timeline-item:last-child {
   margin-bottom: 0;
 }
 
 /* The class JS adds to trigger the slide-in */
-.timeline-item.show {
+.experience .timeline-item.show {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* If JS is disabled, keep timeline visible */
+@media (prefers-reduced-motion: reduce) {
+  .experience .timeline-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 /* The glowing dots on the line */
 .timeline-dot {
@@ -1346,7 +1527,7 @@ body {
   background: transparent;
   border: none;
   border-bottom: 2px solid #444; /* Visible line to show where to type */
-  color: #1a1c1a; /* User types in neon green! */
+  color: #27c93f; /* User types in neon green! */
   caret-color: #ff9c1a; /* Forces a bright orange blinking cursor! */
   font-family: inherit;
   font-size: 2.2rem; /* Huge input text */
@@ -1358,12 +1539,12 @@ body {
 
 /* Make the placeholder text visible but dim */
 #flag-input::placeholder {
-  color: #1b0303;
+  color: #888888;
 }
 
 /* When the user clicks into the box, the bottom line lights up */
 #flag-input:focus {
-  border-bottom-color: #021f07; 
+  border-bottom-color: #27c93f;
 }
 
 .ctf-btn {
@@ -1446,4 +1627,126 @@ body {
   animation: errorShake 0.4s ease-in-out !important;
   border: 2px solid #ff5f56 !important; /* Made the border thicker */
   box-shadow: 0 0 30px rgba(255, 95, 86, 0.6) !important; 
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ring-1, .ring-2, .ring-3, .cursor, .slide-down-btn {
+    animation: none;
+  }
+  html { scroll-behavior: auto; }
+}
+
+
+
+/*-----------------------------------*\
+  #ACHIEVEMENTS
+\*-----------------------------------*/
+
+.achievements { background-color: var(--cultured); }
+
+.achievement-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+.achievement-card {
+  position: relative;
+  background-color: var(--white);
+  border: 1px solid var(--black_10);
+  border-radius: var(--radius-10);
+  box-shadow: var(--shadow);
+  padding: 26px 24px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.achievement-card ion-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--theme-color);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  --ionicon-stroke-width: 40px;
+  padding: 11px;
+}
+
+.achievement-title {
+  color: var(--black);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-16, 1.6rem);
+  font-weight: var(--fw-700);
+  line-height: 1.4;
+}
+
+.achievement-text {
+  color: var(--dim-gray);
+  font-size: var(--fs-14, 1.4rem);
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .achievement-list { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+@media (min-width: 992px) {
+  .achievement-list { grid-template-columns: repeat(4, 1fr); }
+  .achievement-card { padding: 28px 22px; }
+}
+
+/* Keep adjacent sections from sharing the same background */
+.pricing { background-color: var(--white); }
+
+
+
+/*-----------------------------------*\
+  #MOBILE REFINEMENTS
+\*-----------------------------------*/
+
+/* Hero is content-dense on small screens: keep it scannable, not endless */
+@media (max-width: 767px) {
+  .hero-role-line {
+    font-size: 1.4rem;
+    margin-block: 10px 16px;
+  }
+
+  .hero-keywords { gap: 6px; margin-block-end: 18px; }
+
+  .hero-keywords li {
+    font-size: 1.15rem;
+    padding: 5px 10px;
+  }
+
+  .hero-availability {
+    gap: 8px;
+    margin-block-end: 20px;
+    padding-inline-start: 12px;
+  }
+
+  .hero-availability li {
+    font-size: 1.25rem;
+    gap: 8px;
+  }
+
+  /* Shorten the visa/licence line on phones so it stays 2 lines max */
+  .hero-availability li:last-child span {
+    font-size: 1.2rem;
+    line-height: 1.45;
+  }
+
+  .hero-actions { gap: 10px; margin-block-end: 20px; }
+
+  .hero-actions .btn {
+    flex: 1 1 100%;
+    padding: 13px 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-actions .btn { min-width: 190px; }
 }

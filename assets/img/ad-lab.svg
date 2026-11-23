@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 675" width="600" height="675" role="img" aria-label="Active Directory home lab project banner">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14161a"/>
+      <stop offset="1" stop-color="#07080a"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="675" fill="url(#g)"/>
+  <rect width="600" height="675" fill="url(#grid)"/>
+  <rect x="0" y="0" width="600" height="6" fill="#ff9c1a"/>
+  <g font-family="DejaVu Sans Mono, monospace">
+    <circle cx="42" cy="52" r="7" fill="#ff5f56"/>
+    <circle cx="66" cy="52" r="7" fill="#ffbd2e"/>
+    <circle cx="90" cy="52" r="7" fill="#27c93f"/>
+    <text x="42" y="150" fill="#27c93f" font-size="26" font-weight="bold">$ dc01</text>
+    <text x="42" y="215" fill="#ffffff" font-size="38" font-weight="bold">Active Directory</text>
+    <text x="42" y="262" fill="#ffffff" font-size="38" font-weight="bold">Home Lab</text>
+    <line x1="42" y1="300" x2="150" y2="300" stroke="#ff9c1a" stroke-width="4"/>
+    <text x="42" y="352" fill="#9aa4b2" font-size="22">Windows Server 2016</text>
+    <text x="42" y="388" fill="#9aa4b2" font-size="22">DNS zones & OUs</text>
+    <text x="42" y="424" fill="#9aa4b2" font-size="22">Group Policy hardening</text>
+    <text x="42" y="580" fill="#ff9c1a" font-size="22" font-weight="bold">#ADDS #Windows #IAM</text>
+  </g>
+</svg>

@@ -1,21 +1,22 @@
 # Security Policy
 
-## Supported Versions
+This is a static portfolio site (HTML/CSS/vanilla JS). There are no versioned
+releases and no server-side components in this repository.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Supported
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+The `main` branch is the only supported version. Fixes are applied directly
+to `main` and redeployed as a static site.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Please report suspected vulnerabilities privately by email to
+`infa.khadershareef@gmail.com` with:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- a description of the issue and its impact,
+- steps to reproduce (URL + browser + steps),
+- any suggested fix.
+
+You can expect an initial acknowledgement within 7 days. Please do not open a
+public issue for security reports, and do not attempt to exploit the site
+beyond what is needed to demonstrate the issue.

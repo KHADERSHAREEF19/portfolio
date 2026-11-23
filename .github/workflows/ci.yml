@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  site-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run smoke tests
+        run: python3 tests/test_site.py
+      - name: Check JS syntax
+        run: node --check assets/js/script.js && node --check assets/js/vendor/confetti.browser.js
+      - name: Check resume PDF is one page with author metadata
+        run: python3 tools/check_resume.py
