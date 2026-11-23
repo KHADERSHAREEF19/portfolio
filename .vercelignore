@@ -1,9 +1,0 @@
-# Excluded from Vercel deployments only.
-# These stay in the repo so CI and local checks keep working, but are
-# never served to visitors.
-tests/
-tools/
-.github/
-.editorconfig
-.gitattributes
-README.md
