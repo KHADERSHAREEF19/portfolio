@@ -8,11 +8,13 @@
  * add event on element
  */
 const addEventOnElem = function (elem, type, callback) {
-  if (elem.length > 1) {
+  if (!elem) return;
+  // NodeList / array-like (but not a single Element)
+  if (elem instanceof NodeList || Array.isArray(elem)) {
     for (let i = 0; i < elem.length; i++) {
       elem[i].addEventListener(type, callback);
     }
-  } else {
+  } else if (typeof elem.addEventListener === "function") {
     elem.addEventListener(type, callback);
   }
 };
@@ -25,15 +27,15 @@ const navLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
 
 const toggleNavbar = function () {
-  navbar.classList.toggle("active");
-  navToggler.classList.toggle("active");
+  if (navbar) navbar.classList.toggle("active");
+  if (navToggler) navToggler.classList.toggle("active");
 };
 
 if (navToggler) addEventOnElem(navToggler, "click", toggleNavbar);
 
 const closeNavbar = function () {
-  navbar.classList.remove("active");
-  navToggler.classList.remove("active");
+  if (navbar) navbar.classList.remove("active");
+  if (navToggler) navToggler.classList.remove("active");
 };
 
 if (navLinks.length > 0) addEventOnElem(navLinks, "click", closeNavbar);
@@ -74,55 +76,82 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   if (preloader) {
-    typeString(); // Start typing
-    
-    setTimeout(() => {
+    if (prefersReducedMotion) {
       preloader.classList.add("preloader-hidden");
       setTimeout(() => {
         if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-      }, 500);
-    }, 2500);
+      }, 100);
+    } else {
+      typeString(); // Start typing
+
+      setTimeout(() => {
+        preloader.classList.add("preloader-hidden");
+        setTimeout(() => {
+          if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+        }, 500);
+      }, 2500);
+    }
   }
 
-  // --- B. TIMELINE SCROLL REVEAL ---
-  const timelineSection = document.querySelector(".timeline");
-  const timelineItems = document.querySelectorAll(".timeline-item");
+  // --- B. TIMELINE SCROLL REVEAL (Experience only; Education stays visible) ---
+  const timelineSection = document.querySelector(".experience .timeline");
+  const timelineItems = document.querySelectorAll(".experience .timeline-item");
 
   if (timelineSection && timelineItems.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          timelineItems.forEach((item, index) => {
-            setTimeout(() => {
-              item.classList.add("show");
-            }, index * 800); 
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+    if (prefersReducedMotion) {
+      timelineItems.forEach((item) => item.classList.add("show"));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            timelineItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add("show");
+              }, index * 200);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
 
-    observer.observe(timelineSection);
+      observer.observe(timelineSection);
+    }
   }
 
   // --- C. CTF CHALLENGE LOGIC ---
-// --- C. CTF CHALLENGE LOGIC ---
   const submitFlagBtn = document.getElementById("submit-flag");
   const flagInput = document.getElementById("flag-input");
   const ctfMessage = document.getElementById("ctf-message");
   const resumeDownload = document.getElementById("resume-download");
   const inputArea = document.getElementById("ctf-input-area");
-  
-  // THIS IS THE LINE THAT WAS LIKELY MISSING!
-  const terminalBox = document.querySelector(".terminal-box"); 
+
+  const terminalBox = document.querySelector(".terminal-box") || document.querySelector(".terminal-body");
+
+  // SHA-256 of the correct flag (flag itself is not stored in plaintext).
+  // Note: on a static site this only hides the flag from casual view-source;
+  // the PDF remains publicly downloadable by design. For true gating, verify server-side.
+  const FLAG_HASH = "7f5c0d5f5ddbcd96c88f19738e6661039d3c776cf698a5f3725a708a248b7e69";
+
+  async function sha256Hex(text) {
+    const data = new TextEncoder().encode(text);
+    const hash = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, "0")).join("");
+  }
 
   if (submitFlagBtn && flagInput) {
-    submitFlagBtn.addEventListener("click", () => {
+    submitFlagBtn.addEventListener("click", async () => {
       const userAnswer = flagInput.value.trim();
-      const correctFlag = "FLAG{F!nd_my_R3$um3_B3l0w}";
+      let isCorrect = false;
+      try {
+        isCorrect = (await sha256Hex(userAnswer)) === FLAG_HASH;
+      } catch (e) {
+        isCorrect = false;
+      }
 
-      if (userAnswer === correctFlag) {
+      if (isCorrect) {
         // Success State
         ctfMessage.textContent = "";
         ctfMessage.classList.remove("error-text");
@@ -163,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    flagInput.addEventListener("keypress", function(event) {
+    flagInput.addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
         event.preventDefault();
         submitFlagBtn.click();

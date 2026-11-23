@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node (if added later)
+node_modules/
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
