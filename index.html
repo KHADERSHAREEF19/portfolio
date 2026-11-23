@@ -13,7 +13,8 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="./assets/img/pro.jpg">
 
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./assets/img/letter-k.png" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/img/letter-k.png">
 
   <!-- 
     - css link
@@ -109,7 +110,7 @@
         - #HERO 
       -->
 
-      <section class="section hero" id="home" aria-label="hero">
+      <section class="section hero hero--uae" id="home" aria-label="hero">
         <div class="container">
 
           <figure class="hero-banner img-holder has-before">
@@ -638,9 +639,10 @@
               vulnerability assessment and incident response
             </p>
 
-            <ul class="skills-list">
+            <div class="skills-columns">
 
-              <li class="skills-item">
+              <ul class="skills-list">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">Scripting (Python & Bash)</h3>
 
@@ -651,30 +653,7 @@
                   <div class="progress" data-progress="95"></div>
                 </div>
               </li>
-              <li class="skills-item">
-                <div class="wrapper">
-                  <h3 class="skill-title">Containerization (Docker & Kubernetes)</h3>
-
-                  <data class="skill-value" value="60%">60%</data>
-                </div>
-
-                <div class="progress-box">
-                  <div class="progress" data-progress="60"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="wrapper">
-                  <h3 class="skill-title">IAC - Terraform</h3>
-
-                  <data class="skill-value" value="70%">70%</data>
-                </div>
-
-                <div class="progress-box">
-                  <div class="progress" data-progress="70"></div>
-                </div>
-              </li>
-
-              <li class="skills-item">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">SIEM &amp; Log Analysis (Sentinel, Splunk, Wazuh)</h3>
 
@@ -685,8 +664,7 @@
                   <div class="progress" data-progress="85"></div>
                 </div>
               </li>
-
-              <li class="skills-item">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">Microsoft Defender XDR (MDO, MDE, MDI, MDCA)</h3>
 
@@ -697,8 +675,7 @@
                   <div class="progress" data-progress="85"></div>
                 </div>
               </li>
-
-              <li class="skills-item">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">KQL, Threat Hunting &amp; MITRE ATT&amp;CK</h3>
 
@@ -709,8 +686,7 @@
                   <div class="progress" data-progress="80"></div>
                 </div>
               </li>
-
-              <li class="skills-item">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">Identity &amp; Access Management (Entra ID, PingOne)</h3>
 
@@ -721,30 +697,7 @@
                   <div class="progress" data-progress="80"></div>
                 </div>
               </li>
-
-              <li class="skills-item">
-                <div class="wrapper">
-                  <h3 class="skill-title">Cloud (AWS & Azure)</h3>
-
-                  <data class="skill-value" value="80%">80%</data>
-                </div>
-
-                <div class="progress-box">
-                  <div class="progress" data-progress="80"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="wrapper">
-                  <h3 class="skill-title">Linux (GUI/CLI)</h3>
-
-                  <data class="skill-value" value="90%">90%</data>
-                </div>
-
-                <div class="progress-box">
-                  <div class="progress" data-progress="90"></div>
-                </div>
-              </li>
-              <li class="skills-item">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">Network Security</h3>
 
@@ -755,7 +708,54 @@
                   <div class="progress" data-progress="80"></div>
                 </div>
               </li>
-              <li class="skills-item">
+              </ul>
+
+              <ul class="skills-list">
+                <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">Containerization (Docker & Kubernetes)</h3>
+
+                  <data class="skill-value" value="60%">60%</data>
+                </div>
+
+                <div class="progress-box">
+                  <div class="progress" data-progress="60"></div>
+                </div>
+              </li>
+                <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">IAC - Terraform</h3>
+
+                  <data class="skill-value" value="70%">70%</data>
+                </div>
+
+                <div class="progress-box">
+                  <div class="progress" data-progress="70"></div>
+                </div>
+              </li>
+                <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">Cloud (AWS & Azure)</h3>
+
+                  <data class="skill-value" value="80%">80%</data>
+                </div>
+
+                <div class="progress-box">
+                  <div class="progress" data-progress="80"></div>
+                </div>
+              </li>
+                <li class="skills-item">
+                <div class="wrapper">
+                  <h3 class="skill-title">Linux (GUI/CLI)</h3>
+
+                  <data class="skill-value" value="90%">90%</data>
+                </div>
+
+                <div class="progress-box">
+                  <div class="progress" data-progress="90"></div>
+                </div>
+              </li>
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">git & Github</h3>
 
@@ -766,7 +766,7 @@
                   <div class="progress" data-progress="95"></div>
                 </div>
               </li>
-              <li class="skills-item">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">Ansible</h3>
 
@@ -777,7 +777,7 @@
                   <div class="progress" data-progress="30"></div>
                 </div>
               </li>
-              <li class="skills-item">
+                <li class="skills-item">
                 <div class="wrapper">
                   <h3 class="skill-title">CI/CD (Jenkins)</h3>
 
@@ -788,8 +788,9 @@
                   <div class="progress" data-progress="77"></div>
                 </div>
               </li>
+              </ul>
 
-            </ul>
+            </div>
 
           </div>
 
@@ -981,123 +982,231 @@
         </div>
       </section>
 
-      <section class="section experience" id="experience">
+      <section class="section experience" id="experience" aria-label="Experience">
   <div class="container">
     <p class="section-subtitle">My Journey</p>
     <h2 class="h2 section-title">Experience &amp; Volunteering</h2>
 
-    <div class="timeline">
+    <p class="experience-intro">
+      Nine roles across SOC validation, identity and access management, cloud support and
+      security engineering — plus leadership running a college cybersecurity club.
+    </p>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">Identity &amp; Access Management (IAM) Intern</h3>
-          <span class="timeline-date">North Star Identity | Oct 2026 - Present · Remote (USA)</span>
-          <p class="timeline-text">
-            • Configured enterprise SSO integrations on PingOne Workforce using OIDC and SAML 2.0, managing user directories, custom attributes and RBAC policies.<br>
-            • Configured adaptive MFA and threat-protection rules in PingOne Protect with risk-based step-up authentication.<br>
-            • Built identity workflows in PingOne DaVinci, integrated PingOne Verify for ID/selfie proofing, and reviewed audit logs to troubleshoot authentication failures.
-          </p>
-        </div>
-      </div>
+    <h3 class="experience-group-title">
+      <ion-icon name="briefcase-outline" aria-hidden="true"></ion-icon>
+      Professional Experience
+    </h3>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">AI Threat Validation Analyst</h3>
-          <span class="timeline-date">Cyber Managed Services Inc. (CyberMSI) | Jun 2026 - Jul 2026 · Remote (USA)</span>
-          <p class="timeline-text">
-            • Monitored real-time alert streams across enterprise multi-tenant environments using Microsoft Sentinel and Defender XDR.<br>
-            • Qualified incidents to separate true positives from false positives across endpoint, email and identity telemetry; analyzed SPF/DKIM/DMARC headers, sandboxed payloads and IOC reputations to mitigate phishing and BEC.<br>
-            • Executed first-response containment (host isolation, file quarantine, session revocation) and drafted 5Ws investigation reports within client SLAs.
-          </p>
-        </div>
-      </div>
+    <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">Cloud Support Engineer</h3>
-          <span class="timeline-date">F13 Technologies | Mar 2026 - Jun 2026</span>
-          <p class="timeline-text">
-            • Provided cloud support and customer-facing technical support.
-          </p>
-        </div>
-      </div>
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">Identity &amp; Access Management (IAM) Intern</h3>
+                  <span class="timeline-badge timeline-badge--current">Current</span>
+                </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">President, CyberElites Club</h3>
-          <span class="timeline-date">NSAKCET | Jun 2025 - Jan 2026</span>
-          <p class="timeline-text">
-            • Leading the college cybersecurity club. Planned and organized major events including "Hack 1337" (featuring hardware hacking and CTFs) and a "Blockchain 101" seminar to upskill students in modern security practices.
-          </p>
-        </div>
-      </div>
+                <p class="timeline-org">North Star Identity</p>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">Internship Trainee</h3>
-          <span class="timeline-date">HackerSchool | May 2025 - Nov 2025</span>
-          <p class="timeline-text">
-            • Executed hands-on penetration testing and vulnerability assessments, utilizing industry-standard tools to identify and exploit system weaknesses.<br>
-            • Bridged theoretical concepts with real-world attack simulations to build a strong, practical foundation in both offensive and defensive security.
-          </p>
-        </div>
-      </div>
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Oct 2026 – Present · Remote · USA</span>
+                </p>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">Jr. CyberSecurity Analyst Internship</h3>
-          <span class="timeline-date">Redynox | Jun 2025 - Jul 2025</span>
-          <p class="timeline-text">
-            • Worked on hands-on cyber security tasks focused on network and web application security.<br>
-            • Key responsibilities include identifying network vulnerabilities, configuring firewalls and monitoring traffic with Wireshark<br>
-            • Analysing webpage using OWASP ZAP and documenting, security awareness
-          </p>
-        </div>
-      </div>
+                <ul class="timeline-points">
+                      <li>Configured enterprise SSO on PingOne Workforce using OIDC and SAML 2.0, managing user directories, custom attributes and RBAC policies.</li>
+                      <li>Configured adaptive MFA and threat-protection rules in PingOne Protect with risk-based step-up authentication.</li>
+                      <li>Built identity workflows in PingOne DaVinci and integrated PingOne Verify for ID and selfie proofing.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">CyberSecurity Engineer</h3>
-          <span class="timeline-date">Digisuraksha Parhari Foundation | Feb 2025 - Mar 2025</span>
-          <p class="timeline-text">
-            • Developed industry-based cybersecurity projects to enhance technical and soft skills, working on Projects with Team and developing in-house tools<br>
-            • Collaborated with team members to implement security measures for Digisuraksha Parhari Foundation.
-          </p>
-        </div>
-      </div>
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">AI Threat Validation Analyst</h3>
+                  <span class="timeline-badge timeline-badge--soc">SOC</span>
+                </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">Student Volunteer</h3>
-          <span class="timeline-date">StudentUnion.im | Dec 2024 - Nov 2025</span>
-          <p class="timeline-text">
-            • Coordinated with tech professionals and engaged in conferences to expand networking and industry insight.<br>
-            • Developed soft skills through volunteer work, improving coordination and collaboration.
-          </p>
-        </div>
-      </div>
+                <p class="timeline-org">Cyber Managed Services Inc. (CyberMSI)</p>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="h3 timeline-title">Cybersecurity Internship</h3>
-          <span class="timeline-date">Prodigy InfoTech | Jul 2024 - Aug 2024</span>
-          <p class="timeline-text">
-            • Architected and developed a log visualization tool for Windows environments.<br>
-            • Designed to streamline security analysis and make threat detection more efficient for analysts.
-          </p>
-        </div>
-      </div>
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Jun 2026 – Jul 2026 · Remote · USA</span>
+                </p>
 
-    </div>
+                <ul class="timeline-points">
+                      <li>Monitored real-time alert streams across multi-tenant environments using Microsoft Sentinel and Defender XDR.</li>
+                      <li>Qualified incidents to separate true positives from false positives across endpoint, email and identity telemetry.</li>
+                      <li>Executed first-response containment (host isolation, file quarantine, session revocation) and drafted 5Ws reports within client SLAs.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">Cloud Support Engineer</h3>
+                  <span class="timeline-badge timeline-badge--cloud">Cloud</span>
+                </div>
+
+                <p class="timeline-org">F13 Technologies</p>
+
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Mar 2026 – Jun 2026 · Remote</span>
+                </p>
+
+                <ul class="timeline-points">
+                      <li>Provided cloud support and customer-facing technical support, troubleshooting cloud service issues.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">Internship Trainee</h3>
+                  <span class="timeline-badge timeline-badge--offsec">Offensive</span>
+                </div>
+
+                <p class="timeline-org">HackerSchool</p>
+
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>May 2025 – Nov 2025 · Remote</span>
+                </p>
+
+                <ul class="timeline-points">
+                      <li>Executed hands-on penetration testing and vulnerability assessments using industry-standard tooling.</li>
+                      <li>Bridged theoretical concepts with real-world attack simulations across offensive and defensive security.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">Jr. CyberSecurity Analyst Internship</h3>
+                  <span class="timeline-badge timeline-badge--soc">SOC</span>
+                </div>
+
+                <p class="timeline-org">Redynox</p>
+
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Jun 2025 – Jul 2025 · Remote</span>
+                </p>
+
+                <ul class="timeline-points">
+                      <li>Identified network vulnerabilities and configured firewalls, monitoring traffic with Wireshark.</li>
+                      <li>Analysed web applications using OWASP ZAP and documented findings and security awareness notes.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">CyberSecurity Engineer</h3>
+                  <span class="timeline-badge timeline-badge--soc">SOC</span>
+                </div>
+
+                <p class="timeline-org">Digisuraksha Parhari Foundation</p>
+
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Feb 2025 – Mar 2025 · Remote</span>
+                </p>
+
+                <ul class="timeline-points">
+                      <li>Developed industry-based cybersecurity projects and in-house tooling with the team.</li>
+                      <li>Collaborated on implementing security measures for the foundation.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">Cybersecurity Internship</h3>
+                  <span class="timeline-badge timeline-badge--soc">SOC</span>
+                </div>
+
+                <p class="timeline-org">Prodigy InfoTech</p>
+
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Jul 2024 – Aug 2024 · Remote</span>
+                </p>
+
+                <ul class="timeline-points">
+                      <li>Architected and developed a log visualization tool for Windows environments.</li>
+                      <li>Streamlined security analysis and made threat detection more efficient for analysts.</li>
+                </ul>
+              </div>
+            </li>
+    </ol>
+
+    <h3 class="experience-group-title">
+      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+      Leadership &amp; Volunteering
+    </h3>
+
+    <ol class="timeline timeline--secondary">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">President</h3>
+                  <span class="timeline-badge timeline-badge--leader">Leadership</span>
+                </div>
+
+                <p class="timeline-org">CyberElites Club · NSAKCET</p>
+
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Jun 2025 – Jan 2026 · Hyderabad, India</span>
+                </p>
+
+                <ul class="timeline-points">
+                      <li>Led the college cybersecurity club, planning and running events including “Hack 1337” (hardware hacking and CTFs).</li>
+                      <li>Organised a “Blockchain 101” seminar and brought in industry guest speakers.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <div class="timeline-content">
+                <div class="timeline-head">
+                  <h3 class="h3 timeline-title">Student Volunteer</h3>
+                  <span class="timeline-badge timeline-badge--volunteer">Volunteering</span>
+                </div>
+
+                <p class="timeline-org">StudentUnion.im</p>
+
+                <p class="timeline-date">
+                  <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+                  <span>Dec 2024 – Nov 2025 · Remote</span>
+                </p>
+
+                <ul class="timeline-points">
+                      <li>Coordinated with tech professionals and attended conferences to broaden industry insight.</li>
+                      <li>Developed coordination and collaboration skills through volunteer work.</li>
+                </ul>
+              </div>
+            </li>
+    </ol>
+
   </div>
 </section>
 
@@ -1499,7 +1608,7 @@
                 </li>
 
                 <li>
-                  <a href="https://wa.me/971569515117" class="btn btn-outline" rel="noopener noreferrer">
+                  <a href="https://wa.me/919515787655" class="btn btn-outline" rel="noopener noreferrer">
                     <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon>
                     <span>WhatsApp</span>
                   </a>

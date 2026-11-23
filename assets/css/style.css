@@ -235,40 +235,42 @@ body {
   }
   
   /*
-   * Card metadata sits in a readable panel at the bottom of the artwork.
-   * It must always be visible: the original design started at opacity: 0
-   * and only revealed on :hover/:active, which hid every title and link on
-   * touch devices and for keyboard users.
+   * Certification cards: the badge artwork is the resting state, and the
+   * name/issuer panel fades in on hover or keyboard focus.
+   *
+   * The pointer-media query below keeps that reveal for mouse users while
+   * touch devices (no hover) and reduced-motion users always see the panel,
+   * so the title is never permanently hidden.
    */
   .card-content {
     position: absolute;
-    inset: auto 10px 10px 10px;
-    background-color: hsl(0, 0%, 100%, 0.96);
+    inset: 10px;
+    background-color: hsl(0, 0%, 100%, 0.97);
     border-radius: var(--radius-8);
-    padding: 14px 16px;
+    padding: 20px 22px;
     display: grid;
     gap: 2px;
     align-content: end;
     opacity: 1;
     transition: var(--transition);
   }
-  
+
   .card-content > ion-icon {
     position: absolute;
-    top: 12px;
-    right: 14px;
+    top: 20px;
+    right: 20px;
     color: var(--black);
-    font-size: 20px;
+    font-size: 40px;
+    transform: rotate(-45deg);
   }
 
   .card-content .card-title {
-    font-size: 1.45rem;
+    font-size: 1.7rem;
     line-height: 1.35;
-    padding-right: 22px;
     color: var(--black);
   }
 
-  .card-content .card-text { font-size: 1.2rem; color: var(--dim-gray); }
+  .card-content .card-text { font-size: 1.35rem; color: var(--dim-gray); }
   
   .card-text { font-family: var(--ff-poppins); }
   
@@ -1292,104 +1294,6 @@ body {
   padding-block: 80px;
 }
 
-.timeline {
-  position: relative;
-  max-width: 900px; /* Allows the boxes to get much wider */
-  margin: 0 auto; /* Centers the timeline on the page */
-  padding-left: 50px; /* Pushes the boxes further from the line */
-  border-left: 3px solid #ff9c1a; /* The straight vertical line */
-}
-
-.experience .timeline-item {
-  position: relative;
-  width: 100%;
-  margin-bottom: 50px;
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.experience .timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-/* The class JS adds to trigger the slide-in */
-.experience .timeline-item.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* If JS is disabled, keep timeline visible */
-/* The glowing dots on the line */
-.timeline-dot {
-  position: absolute;
-  left: -60px; /* Aligns the dot perfectly over the border */
-  top: 20px; /* Pushes the dot down to align nicely with the bigger box */
-  width: 18px;
-  height: 18px;
-  background-color: #ff9c1a;
-  border-radius: 50%;
-  border: 4px solid #111111;
-  box-shadow: 0 0 12px rgba(255, 156, 26, 0.6);
-}
-
-/* The content boxes */
-.timeline-content {
-  background: #1a1a1a !important; 
-  width: 100% !important; 
-  padding: 40px 50px !important; 
-  border-radius: 12px; 
-  border: 1px solid #333333;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.timeline-content:hover {
-  transform: translateY(-5px);
-  border-color: #ff9c1a;
-}
-
-.timeline-title {
-  color: #ffffff;
-  margin-bottom: 20px;
-  font-size: 2.4rem;
-}
-
-.timeline-date {
-  display: inline-block;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.27rem; /* Larger date text */
-  color: #ff9c1a;
-  margin-bottom: 20px;
-  background: rgba(255, 156, 26, 0.1);
-  padding: 16px 14px;
-  border-radius: 4px;
-}
-
-.timeline-text {
-  color: #cccccc;
-  line-height: 1.8; /* Increased spacing between lines */
-  font-size: 1.5rem; /* Larger paragraph text for easier reading */
-}
-
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-  .timeline {
-    padding-left: 30px;
-  }
-  .timeline-dot {
-    left: -40px;
-  }
-  .timeline-content {
-    padding: 25px; /* Shrinks the padding back down for small phone screens */
-  }
-  .timeline-title {
-    font-size: 1.4rem;
-  }
-  .timeline-text {
-    font-size: 1rem;
-  }
-}
 /* --- CTF CHALLENGE SECTION --- */
 /* --- CTF CHALLENGE SECTION (UPGRADED UI) --- */
 .ctf-challenge {
@@ -1844,3 +1748,375 @@ input:focus-visible,
 :root { --link-color: hsl(10, 78%, 38%); }  /* 7.1:1 on white */
 
 .project-link { color: var(--link-color); }
+
+
+/*-----------------------------------*\
+  #CERTIFICATION CARD REVEAL
+\*-----------------------------------*/
+
+/*
+ * Mouse users get the original behaviour back: badge artwork at rest,
+ * certificate name on hover. Touch devices have no hover, so they (and
+ * reduced-motion users) keep the panel visible at all times.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .card .card-content {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  .card:is(:hover, :focus-within) .card-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Keep the card clickable even while the panel is hidden. */
+  .card:is(:hover, :focus-within) .card-banner .img-cover {
+    transform: scale(1.03);
+    transition: transform 0.35s ease;
+  }
+}
+
+
+
+/*-----------------------------------*\
+  #SKILLS: TWO-COLUMN LAYOUT
+\*-----------------------------------*/
+
+/* Let the skills section use the full content width instead of one column. */
+.skills .skills-content { max-width: none; }
+
+.skills-columns {
+  display: grid;
+  gap: 0 40px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.skills-columns .skills-list { margin: 0; }
+
+/* Keep the bars readable when the columns get narrow. */
+.skills-columns .skill-title {
+  font-size: 1.45rem;
+  line-height: 1.4;
+  padding-inline-end: 12px;
+}
+
+.skills-columns .skill-value { flex-shrink: 0; }
+
+@media (min-width: 768px) {
+  .skills-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 48px;
+  }
+
+  /* Space between stacked bars inside each column. */
+  .skills-columns .skills-item:not(:last-child) { margin-block-end: 22px; }
+}
+
+@media (min-width: 1200px) {
+  .skills-columns { gap: 0 70px; }
+  .skills-columns .skills-item:not(:last-child) { margin-block-end: 26px; }
+}
+
+
+
+/*-----------------------------------*\
+  #HERO: UAE SKYLINE BACKGROUND
+\*-----------------------------------*/
+
+/*
+ * The hero sits on the supplied Dubai skyline photograph, tinted so the
+ * white headline and body copy keep their contrast (the raw image is a
+ * bright blue daylight photo).
+ */
+.hero--uae {
+  position: relative;
+  isolation: isolate;
+  background-color: #0d1b2a;
+  background-image: url("../img/uae-skyline.jpg");
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Readability layer between the photo and the content. */
+.hero--uae::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      hsl(210, 45%, 12%, 0.82) 0%,
+      hsl(210, 45%, 14%, 0.76) 45%,
+      hsl(210, 45%, 10%, 0.88) 100%
+    );
+  pointer-events: none;
+}
+
+/* Content colour flips to light on the dark photograph. */
+.hero--uae .hero-title,
+.hero--uae .section-subtitle { color: var(--white); }
+
+.hero--uae .hero-role-line { color: hsl(0, 0%, 88%); }
+
+.hero--uae .hero-keywords li {
+  background-color: hsl(0, 0%, 100%, 0.12);
+  border-color: hsl(0, 0%, 100%, 0.25);
+  color: var(--white);
+  backdrop-filter: blur(4px);
+}
+
+.hero--uae .hero-availability {
+  border-inline-start-color: var(--theme-color);
+}
+
+.hero--uae .hero-availability li { color: hsl(0, 0%, 85%); }
+.hero--uae .hero-availability strong { color: var(--white); }
+
+.hero--uae .exp-list .strong { color: var(--theme-color); }
+.hero--uae .exp-list .span { color: hsl(0, 0%, 82%); }
+
+.hero--uae .btn-outline {
+  color: var(--white);
+  border-color: hsl(0, 0%, 100%, 0.45);
+}
+
+.hero--uae .btn-outline:is(:hover, :focus-visible) {
+  background-color: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+/* The portrait keeps its own frame against the photo. */
+.hero--uae .hero-banner {
+  box-shadow: 0 18px 45px hsla(0, 0%, 0%, 0.45);
+}
+
+/* Subtle drift so the skyline does not feel like a flat still image. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .hero--uae {
+    animation: skylineDrift 32s ease-in-out infinite alternate;
+  }
+
+  @keyframes skylineDrift {
+    from { background-position: center 35%; }
+    to   { background-position: center 55%; }
+  }
+}
+
+
+
+/*-----------------------------------*\
+  #EXPERIENCE (redesigned)
+\*-----------------------------------*/
+
+.experience { background-color: var(--white); }
+
+.experience-intro {
+  color: var(--dim-gray);
+  max-width: 62ch;
+  line-height: 1.7;
+  margin-block: 10px 32px;
+}
+
+.experience-group-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--black);
+  font-family: var(--ff-poppins);
+  font-size: 1.5rem;
+  font-weight: var(--fw-700);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-block: 8px 26px;
+}
+
+.experience-group-title ion-icon {
+  color: var(--theme-color);
+  font-size: 22px;
+}
+
+.timeline--secondary { margin-block-start: 44px; }
+
+/* Card-style entries instead of loose text on a line */
+.experience .timeline {
+  list-style: none;
+  max-width: 900px;
+  margin-inline: 0;
+  padding-inline-start: 34px;
+  border-inline-start: 2px solid var(--black_10);
+}
+
+.experience .timeline-item {
+  position: relative;
+  margin-block-end: 22px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.experience .timeline-item.show {
+  opacity: 1;
+  transform: none;
+}
+
+.experience .timeline-item:last-child { margin-block-end: 0; }
+
+.timeline-dot {
+  position: absolute;
+  inset-inline-start: -43px;
+  inset-block-start: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--theme-color);
+  box-shadow: 0 0 0 4px var(--white), 0 0 0 6px hsl(10, 100%, 57%, 0.25);
+}
+
+.timeline-content {
+  background-color: var(--white);
+  border: 1px solid var(--black_10);
+  border-radius: var(--radius-10);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .timeline-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px hsla(0, 0%, 0%, 0.1);
+  }
+}
+
+.timeline-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-block-end: 4px;
+}
+
+.timeline-title {
+  color: var(--black);
+  font-family: var(--ff-poppins);
+  font-size: 1.7rem;
+  font-weight: var(--fw-700);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.timeline-badge {
+  font-family: var(--ff-poppins);
+  font-size: 1.05rem;
+  font-weight: var(--fw-600);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.timeline-badge--current { background-color: hsl(145, 63%, 92%); color: hsl(145, 63%, 24%); }
+.timeline-badge--soc { background-color: hsl(210, 80%, 93%); color: hsl(210, 80%, 30%); }
+.timeline-badge--cloud { background-color: hsl(28, 90%, 92%); color: hsl(28, 80%, 30%); }
+.timeline-badge--offsec { background-color: hsl(0, 75%, 94%); color: hsl(0, 65%, 35%); }
+.timeline-badge--leader { background-color: hsl(268, 60%, 94%); color: hsl(268, 55%, 36%); }
+.timeline-badge--volunteer { background-color: hsl(0, 0%, 93%); color: hsl(0, 0%, 30%); }
+
+.timeline-org {
+  color: var(--black);
+  font-family: var(--ff-poppins);
+  font-size: 1.4rem;
+  font-weight: var(--fw-600);
+  margin-block-end: 6px;
+}
+
+.timeline-date {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--dim-gray);
+  font-size: 1.25rem;
+  margin-block-end: 12px;
+}
+
+.timeline-date ion-icon {
+  color: var(--theme-color);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.timeline-points {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-points li {
+  position: relative;
+  color: var(--dim-gray);
+  font-size: 1.35rem;
+  line-height: 1.65;
+  padding-inline-start: 16px;
+}
+
+.timeline-points li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--theme-color);
+}
+
+@media (min-width: 768px) {
+  .experience .timeline { padding-inline-start: 42px; }
+  .timeline-dot { inset-inline-start: -51px; }
+  .timeline-content { padding: 26px 30px; }
+  .timeline-title { font-size: 1.85rem; }
+  .timeline-points li { font-size: 1.4rem; }
+}
+
+
+/*-----------------------------------*\
+  #SKILLS COLUMNS: DARK PANEL
+\*-----------------------------------*/
+
+.skills-columns .skills-list {
+  background-color: hsl(0, 0%, 100%, 0.04);
+  border: 1px solid hsl(0, 0%, 100%, 0.10);
+  border-radius: var(--radius-10);
+  padding: 26px 24px;
+}
+
+.skills-columns .skills-list + .skills-list { margin-block-start: 0; }
+
+@media (max-width: 767px) {
+  .skills-columns .skills-list + .skills-list { margin-block-start: 20px; }
+  .skills-columns .skills-list { padding: 22px 20px; }
+}
+
+.skills-columns .skill-title { color: var(--white); }
+.skills-columns .skill-value { color: var(--theme-color); }
+
+.skills-columns .progress-box {
+  background-color: hsl(0, 0%, 100%, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skills-columns .progress {
+  background-color: var(--theme-color);
+  height: 7px;
+  border-radius: 999px;
+}
