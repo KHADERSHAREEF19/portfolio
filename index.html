@@ -50,9 +50,9 @@
   <header class="header" data-header>
     <div class="container">
 
-      <a href="#" class="logo">Khader</a>
+      <a href="#home" class="logo">Khader</a>
 
-      <nav class="navbar" data-navbar>
+      <nav class="navbar" id="primary-nav" aria-label="Primary" data-navbar>
         <ul class="navbar-list">
 
           <li>
@@ -75,8 +75,11 @@
           <li>
             <a href="#achievements" class="navbar-link" data-nav-link>Achievements</a>
           </li>
-           <li>
-            <a href="#ctf" class="navbar-link" data-nav-link>Resume</a>
+          <li>
+            <a href="#projects" class="navbar-link" data-nav-link>Projects</a>
+          </li>
+          <li>
+            <a href="./assets/KhaderShareef.pdf" class="navbar-link" download="Khader_Shareef_Madani_UAE_Resume.pdf">Resume</a>
           </li>
 
           <li>
@@ -86,7 +89,7 @@
         </ul>
       </nav>
 
-      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+      <button class="nav-toggle-btn" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" data-nav-toggler>
         <span class="line line-1"></span>
         <span class="line line-2"></span>
         <span class="line line-3"></span>
@@ -109,7 +112,7 @@
       <section class="section hero" id="home" aria-label="hero">
         <div class="container">
 
-          <figure class="hero-banner img-holder has-before" style="--width: 640; --height: 840;">
+          <figure class="hero-banner img-holder has-before">
             <img src="./assets/img/pro.jpg" width="640" height="840" alt="Portrait of Khader Shareef Madani" class="img-cover" fetchpriority="high">
           </figure>
 
@@ -124,30 +127,22 @@
             </p>
 
             <ul class="hero-keywords" aria-label="Core skills">
-
               <li>Microsoft Defender XDR</li>
-              <li>Microsoft Sentinel (KQL)</li>
-              <li>Entra ID</li>
-              <li>PingOne / IAM</li>
-              <li>CompTIA Network+</li>
-              <li>CCNA</li>
+              <li>Sentinel (KQL)</li>
+              <li>Entra ID / PingOne IAM</li>
+              <li>CCNA · Network+</li>
             </ul>
 
             <ul class="hero-availability" aria-label="Availability">
 
               <li>
                 <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-                <span><strong>Open to UAE relocation</strong> · Hyderabad, India</span>
+                <span><strong>Open to UAE relocation</strong> · UAE visa valid to <strong>Feb 2027</strong></span>
               </li>
 
               <li>
                 <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                <span><strong>Immediate joiner</strong> · Notice period: none</span>
-              </li>
-
-              <li>
-                <ion-icon name="card-outline" aria-hidden="true"></ion-icon>
-                <span>UAE visa valid until <strong>Feb 2027</strong> · No UAE driving licence</span>
+                <span><strong>Immediate joiner</strong> · no notice period</span>
               </li>
 
             </ul>
@@ -185,7 +180,7 @@
 
             </ul>
 
-            <a href="#portfolio" class="slide-down-btn" aria-label="scroll down">
+            <a href="#projects" class="slide-down-btn" aria-label="Jump to projects">
               <ion-icon name="arrow-down" aria-hidden="true"></ion-icon>
             </a>
 
@@ -214,12 +209,12 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/cbtp.webp" width="600" height="675" loading="lazy" alt="Certified Blue Team Practitioner badge from The SecOps Group"
                     decoding="async" class="img-cover">
                 </figure>
 
-                <a href="" class="card-content">
+                <a href="https://pentestingexams.com/certifications/essentials/certified-blue-team-practitioner/" class="card-content" rel="noopener noreferrer">
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
 
@@ -234,12 +229,12 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/TRYHACKME.webp" width="600" height="675" loading="lazy" alt="SOC Level 1 learning path badge from TryHackMe"
                     decoding="async" class="img-cover">
                 </figure>
 
-                <a href="" class="card-content">
+                <a href="https://tryhackme.com/path/outline/soclevel1" class="card-content" rel="noopener noreferrer">
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
 
@@ -254,12 +249,12 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/CCNA.png" width="600" height="675" loading="lazy" alt="CCNA certification badge from Cisco"
                     decoding="async" class="img-cover">
                 </figure>
 
-                <a href="" class="card-content">
+                <a href="https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html" class="card-content" rel="noopener noreferrer">
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
 
@@ -274,7 +269,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/ciscointrotocyersec.png" width="600" height="675" loading="lazy" alt="Introduction to Cybersecurity certificate from Cisco"
                     decoding="async" class="img-cover">
                 </figure>
@@ -295,7 +290,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/jpm.jpg" width="600" height="675" loading="lazy" alt="JPMorgan Chase Cybersecurity Job Simulation certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -316,7 +311,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/ibm.webp" width="600" height="675" loading="lazy" alt="IBM Fundamentals of Cybersecurity certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -337,7 +332,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/council.png" width="600" height="675" loading="lazy" alt="EC-Council SQL Injection Attacks certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -358,7 +353,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/micro.jpg" width="600" height="675" loading="lazy" alt="Microsoft Azure AI Fundamentals certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -378,12 +373,12 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/Isc2.webp" width="600" height="675" loading="lazy" alt="ISC2 Certified in Cybersecurity certificate"
                     decoding="async" class="img-cover">
                 </figure>
 
-                <a href="" class="card-content">
+                <a href="https://www.isc2.org/certifications/cc" class="card-content" rel="noopener noreferrer">
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
 
@@ -398,27 +393,25 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/CCEP.png" width="600" height="675" loading="lazy" alt="Certified Cybersecurity Educator Professional certificate from Red Team Leaders"
                     decoding="async" class="img-cover">
                 </figure>
 
-                <a href="" class="card-content">
-
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                <div class="card-content">
 
                   <h3 class="h3 card-title">Certified Cybersecurity Educator Professional</h3>
 
                   <p class="card-text">Red Team Leaders</p>
 
-                </a>
+                </div>
 
               </div>
             </li>
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/ciscoctm.png" width="600" height="675" loading="lazy" alt="Cisco Cyber Threat Management certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -438,7 +431,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/CSUSB-Logo.webp" width="600" height="675" loading="lazy" alt="CompTIA Network+ certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -459,7 +452,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/pwc.jpg" width="600" height="675" loading="lazy" alt="PwC Switzerland Cybersecurity Job Simulation certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -479,7 +472,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/anz.jpg" width="600" height="675" loading="lazy" alt="ANZ Australia Cybersecurity Job Simulation certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -499,12 +492,12 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/CSEDP.webp" width="600" height="675" loading="lazy" alt="Certified Social Engineering Defence Practitioner certificate from The SecOps Group"
                     decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1zY7Rh1yJ4-LiHiT-aLodsBKm17k2Ed2M%2Fview%3Fusp%3Ddrivesdk&urlhash=vgz_&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BW566wl55TNSl1KB4yWvfwg%3D%3D" class="card-content" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1zY7Rh1yJ4-LiHiT-aLodsBKm17k2Ed2M/view" class="card-content" rel="noopener noreferrer">
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
 
@@ -519,8 +512,8 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/img/TRYHACKME.webp" width="600" height="675" loading="lazy" alt="TryHackMe Cybersecurity 101 certificate"
+                <figure class="card-banner img-holder">
+                  <img src="data:image/webp;base64,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" width="600" height="675" loading="lazy" alt="TryHackMe Cybersecurity 101 certificate"
                     decoding="async" class="img-cover">
                 </figure>
 
@@ -539,12 +532,12 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/CNSP.png" width="600" height="675" loading="lazy" alt="Certified Network Security Practitioner certificate from The SecOps Group"
                     decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1_Azmv1S5IuG8Qq54T-jO9ESWo6NvQDwp%2Fview%3Fusp%3Ddrivesdk&urlhash=jul2&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BW566wl55TNSl1KB4yWvfwg%3D%3D" class="card-content" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1_Azmv1S5IuG8Qq54T-jO9ESWo6NvQDwp/view" class="card-content" rel="noopener noreferrer">
 
                   <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
 
@@ -559,7 +552,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/datacom.png" width="600" height="675" loading="lazy" alt="Datacom Cybersecurity Management Job Simulation certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -579,7 +572,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/aig.png" width="600" height="675" loading="lazy" alt="AIG Cybersecurity Job Simulation certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -599,7 +592,7 @@
             <li class="scrollbar-item">
               <div class="card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="card-banner img-holder">
                   <img src="./assets/img/telstra.jpg" width="600" height="675" loading="lazy" alt="Telstra Cybersecurity Job Simulation certificate"
                     decoding="async" class="img-cover">
                 </figure>
@@ -655,7 +648,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 95%"></div>
+                  <div class="progress" data-progress="95"></div>
                 </div>
               </li>
               <li class="skills-item">
@@ -666,7 +659,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 60%"></div>
+                  <div class="progress" data-progress="60"></div>
                 </div>
               </li>
               <li class="skills-item">
@@ -677,7 +670,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 70%"></div>
+                  <div class="progress" data-progress="70"></div>
                 </div>
               </li>
 
@@ -689,7 +682,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 85%"></div>
+                  <div class="progress" data-progress="85"></div>
                 </div>
               </li>
 
@@ -701,7 +694,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 85%"></div>
+                  <div class="progress" data-progress="85"></div>
                 </div>
               </li>
 
@@ -713,7 +706,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 80%"></div>
+                  <div class="progress" data-progress="80"></div>
                 </div>
               </li>
 
@@ -725,7 +718,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 80%"></div>
+                  <div class="progress" data-progress="80"></div>
                 </div>
               </li>
 
@@ -737,7 +730,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 80%"></div>
+                  <div class="progress" data-progress="80"></div>
                 </div>
               </li>
               <li class="skills-item">
@@ -748,7 +741,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 90%"></div>
+                  <div class="progress" data-progress="90"></div>
                 </div>
               </li>
               <li class="skills-item">
@@ -759,7 +752,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 80%"></div>
+                  <div class="progress" data-progress="80"></div>
                 </div>
               </li>
               <li class="skills-item">
@@ -770,7 +763,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 95%"></div>
+                  <div class="progress" data-progress="95"></div>
                 </div>
               </li>
               <li class="skills-item">
@@ -781,7 +774,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 30%"></div>
+                  <div class="progress" data-progress="30"></div>
                 </div>
               </li>
               <li class="skills-item">
@@ -792,7 +785,7 @@
                 </div>
 
                 <div class="progress-box">
-                  <div class="progress" style="width: 77%"></div>
+                  <div class="progress" data-progress="77"></div>
                 </div>
               </li>
 
@@ -1116,263 +1109,283 @@
         - #Projects I made using chatgpt and using ideas from various github repositories
       -->
 
-      <section class="section news" id="news" aria-label="news">
+      <section class="section projects" id="projects" aria-label="Projects">
         <div class="container">
 
-          <p class="section-subtitle">Latest</p>
+          <p class="section-subtitle">Selected work</p>
 
           <h2 class="h2 section-title">Projects</h2>
 
-          <ul class="has-scrollbar">
+          <p class="section-text projects-intro">
+            Hands-on security engineering: SOC tooling, detection automation, identity hardening and
+            applied cryptography. Each project links to its source.
+          </p>
 
-            <li class="scrollbar-item">
-              <div class="card news-card">
+          <ul class="project-list">
+            <li>
+              <article class="project-card featured">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="project-media img-holder">
                   <img src="./assets/img/wazuh-n8n.svg" width="600" height="675" loading="lazy"
-                    alt="Wazuh and n8n alert automation workflow banner" decoding="async" class="img-cover">
+                    alt="Wazuh and n8n alert automation workflow diagram" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/Wazuh-n8n-Automation-Workflow" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">Wazuh + n8n Alert Automation</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> SOC alerts needed manual triage for every Wazuh detection, slowing response.</p>
 
-                  <time class="card-text" datetime="2026-04-12">April 12, 2026</time>
+                  <p class="project-text"><strong>Solution:</strong> Wazuh detection rules trigger an n8n workflow that enriches and routes alerts automatically.</p>
 
-                  <h3 class="h3 card-title">Wazuh + n8n Alert Automation Workflow</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Wazuh</li><li>n8n</li><li>Python</li><li>REST APIs</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/Wazuh-n8n-Automation-Workflow" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
-            <li class="scrollbar-item">
-              <div class="card news-card">
+            <li>
+              <article class="project-card featured">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="project-media img-holder">
                   <img src="./assets/img/soc-lab.svg" width="600" height="675" loading="lazy"
-                    alt="SOC home lab Splunk SIEM detection lab banner" decoding="async" class="img-cover">
+                    alt="SOC home lab with Splunk SIEM diagram" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/SOC-HOME_LAB" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">SOC Home Lab — Splunk SIEM</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Needed a safe environment to practise real detection engineering.</p>
 
-                  <time class="card-text" datetime="2026-03-02">March 02, 2026</time>
+                  <p class="project-text"><strong>Solution:</strong> Virtualised SOC with Splunk, EDR and Windows/Linux agents to reproduce and detect attacks.</p>
 
-                  <h3 class="h3 card-title">SOC Home Lab — Splunk SIEM Detection Lab</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Splunk</li><li>Kali Linux</li><li>Windows</li><li>Sysmon</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/SOC-HOME_LAB" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
-            <li class="scrollbar-item">
-              <div class="card news-card">
+            <li>
+              <article class="project-card featured">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="project-media img-holder">
                   <img src="./assets/img/ad-lab.svg" width="600" height="675" loading="lazy"
-                    alt="Active Directory home lab project banner" decoding="async" class="img-cover">
+                    alt="Active Directory home lab diagram" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/Active-Directory-HomeLab" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">Active Directory Home Lab</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Identity attacks are the top initial-access vector; needed hands-on AD practice.</p>
 
-                  <time class="card-text" datetime="2026-02-18">February 18, 2026</time>
+                  <p class="project-text"><strong>Solution:</strong> Windows Server 2016 domain with DNS, OUs and Group Policy, hardened to least privilege.</p>
 
-                  <h3 class="h3 card-title">Active Directory Home Lab (Windows Server 2016)</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Windows Server</li><li>AD DS</li><li>DNS</li><li>Group Policy</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/Active-Directory-HomeLab" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
-            <li class="scrollbar-item">
-              <div class="card news-card">
+            <li>
+              <article class="project-card">
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/img/CipherHub.webp" width="600" height="675" loading="lazy"
-                    alt="Cipher Hub project banner" decoding="async" class="img-cover">
-                </figure>
-
-                <a href="https://cipherhub-web.vercel.app/" class="card-content" rel="noopener noreferrer">
-
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-
-                  <time class="card-text" datetime="2025-11-18">November 18, 2025</time>
-
-                  <h3 class="h3 card-title">Cipher Hub - Mass File 
-                    Asymmetric Encryption Software</h3>
-
-                </a>
-
-              </div>
-            </li>
-            <li class="scrollbar-item">
-              <div class="card news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/img/wipe.webp" width="600" height="675" loading="lazy"
-                    alt="Secure Data Sanitization Software project banner" decoding="async" class="img-cover">
-                </figure>
-
-                <a href="https://secure-wipe.vercel.app/" class="card-content" rel="noopener noreferrer">
-
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-
-                  <time class="card-text" datetime="2025-09-18">September 18, 2025</time>
-
-                  <h3 class="h3 card-title">Secure Data Sanitization Software</h3>
-
-                </a>
-
-              </div>
-            </li>
-            <li class="scrollbar-item">
-              <div class="card news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="project-media img-holder">
                   <img src="./assets/img/cerelox.webp" width="600" height="675" loading="lazy"
-                    alt="CereLox AI log intelligence project banner" decoding="async" class="img-cover">
+                    alt="CereloX Windows event log visualisation tool screenshot" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/CereLox.git" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">CereloX — Event Log Visualiser</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Windows Event Logs are unreadable during fast-moving incident triage.</p>
 
-                  <time class="card-text" datetime="2026-01-11">January 11, 2026</time>
+                  <p class="project-text"><strong>Solution:</strong> Desktop app that analyses and visualises Windows event logs for fast triage; 95% detection accuracy across 15+ brute-force patterns.</p>
 
-                  <h3 class="h3 card-title">AI-Powered Central Intelligence for logs</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>JavaScript</li><li>Windows Event Log</li><li>Desktop app</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/CereLox" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
+            <li>
+              <article class="project-card">
 
-            <li class="scrollbar-item">
-              <div class="card news-card">
+                <figure class="project-media img-holder">
+                  <img src="./assets/img/wipe.webp" width="600" height="675" loading="lazy"
+                    alt="SecureWipe data sanitisation tool banner" decoding="async" class="img-cover">
+                </figure>
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <div class="project-body">
+                  <h3 class="h3 project-title">SecureWipe — Data Sanitisation</h3>
+
+                  <p class="project-text"><strong>Problem:</strong> Deleted files can still be recovered forensically from disks.</p>
+
+                  <p class="project-text"><strong>Solution:</strong> Secure wipe tool that prevents forensic recovery; 25% faster than standard tools via multi-threaded I/O.</p>
+
+                  <ul class="project-stack" aria-label="Tech stack"><li>Python</li><li>Multi-threading</li><li>Disk I/O</li></ul>
+
+                  <div class="project-links"><a class="project-link" href="https://secure-wipe.vercel.app/" rel="noopener noreferrer">Live demo<ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a><a class="project-link" href="https://github.com/KHADERSHAREEF19/Secure-Wipe" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
+
+              </article>
+            </li>
+            <li>
+              <article class="project-card">
+
+                <figure class="project-media img-holder">
+                  <img src="./assets/img/CipherHub.webp" width="600" height="675" loading="lazy"
+                    alt="Cipher Hub mass file encryption software banner" decoding="async" class="img-cover">
+                </figure>
+
+                <div class="project-body">
+                  <h3 class="h3 project-title">Cipher Hub — Mass File Encryption</h3>
+
+                  <p class="project-text"><strong>Problem:</strong> Encrypting many files individually by hand is slow and error-prone.</p>
+
+                  <p class="project-text"><strong>Solution:</strong> Web app for bulk asymmetric encryption with a simple drag-and-drop workflow.</p>
+
+                  <ul class="project-stack" aria-label="Tech stack"><li>HTML</li><li>JavaScript</li><li>Web Crypto</li></ul>
+
+                  <div class="project-links"><a class="project-link" href="https://cipherhub-web.vercel.app/" rel="noopener noreferrer">Live demo<ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a><a class="project-link" href="https://github.com/KHADERSHAREEF19/CipherHub" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
+
+              </article>
+            </li>
+            <li>
+              <article class="project-card">
+
+                <figure class="project-media img-holder">
                   <img src="./assets/img/nymex.webp" width="600" height="675" loading="lazy"
-                    alt="NymeX CLI OSINT tool project banner" decoding="async" class="img-cover">
+                    alt="NymeX OSINT username enumeration tool banner" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/nymeX.git" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">NymeX — OSINT Username Recon</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Mapping a username across social platforms is repetitive manual work.</p>
 
-                  <time class="card-text" datetime="2025-08-25">August 25, 2025</time>
+                  <p class="project-text"><strong>Solution:</strong> CLI tool that checks username availability and presence across platforms.</p>
 
-                  <h3 class="h3 card-title">NymeX- CLI OSINT tool</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Python</li><li>OSINT</li><li>Requests</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/nymeX" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
+            <li>
+              <article class="project-card">
 
-            <li class="scrollbar-item">
-              <div class="card news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="project-media img-holder">
                   <img src="./assets/img/zainx.webp" width="600" height="675" loading="lazy"
-                    alt="ZainX CLI recon tool project banner" decoding="async" class="img-cover">
+                    alt="ZainX CLI reconnaissance tool banner" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/nymeX.git" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">ZainX — CLI Recon Tool</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Recon gathering is split across many disconnected tools.</p>
 
-                  <time class="card-text" datetime="2025-08-29">August 29, 2025</time>
+                  <p class="project-text"><strong>Solution:</strong> Single CLI that extracts social accounts and reconnaissance data from a username.</p>
 
-                  <h3 class="h3 card-title">ZainX- CLI Recon tool</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Python</li><li>OSINT</li><li>CLI</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/zainX" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
+            <li>
+              <article class="project-card">
 
-            <li class="scrollbar-item">
-              <div class="card news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
-                  <img src="./assets/img/passcomp.jpg" width="600" height="675" loading="lazy"
-                    alt="Complexity Analyzer project banner" decoding="async" class="img-cover">
-                </figure>
-
-                <a href="https://github.com/KHADERSHAREEF19/Project3-Complexity_Analyzer" class="card-content" rel="noopener noreferrer">
-
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-
-                  <time class="card-text" datetime="2024-09-08">September 08, 2024</time>
-
-                  <h3 class="h3 card-title">Complexity Analyzer</h3>
-
-                </a>
-
-              </div>
-            </li>
-
-            <li class="scrollbar-item">
-              <div class="card news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="project-media img-holder">
                   <img src="./assets/img/packetsniff.jpg" width="600" height="675" loading="lazy"
-                    alt="Packet Sniffer Tool project banner" decoding="async" class="img-cover">
+                    alt="Packet sniffer network analysis tool banner" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/Project4-Packet_Sniffer" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">Packet Sniffer</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Understanding live network traffic is essential for detecting anomalies.</p>
 
-                  <time class="card-text" datetime="2024-12-12">December 12, 2024</time>
+                  <p class="project-text"><strong>Solution:</strong> Python packet capture and analysis tool for inspecting traffic at the protocol level.</p>
 
-                  <h3 class="h3 card-title">Packet Sniffer Tool</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Python</li><li>Scapy</li><li>TCP/IP</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/Project4-Packet_Sniffer" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
+            <li>
+              <article class="project-card">
 
-            <li class="scrollbar-item">
-              <div class="card news-card">
+                <figure class="project-media img-holder">
+                  <img src="./assets/img/passcomp.jpg" width="600" height="675" loading="lazy"
+                    alt="Password complexity analyser tool banner" decoding="async" class="img-cover">
+                </figure>
 
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <div class="project-body">
+                  <h3 class="h3 project-title">Password Complexity Analyser</h3>
+
+                  <p class="project-text"><strong>Problem:</strong> Weak passwords pass simple length checks unnoticed.</p>
+
+                  <p class="project-text"><strong>Solution:</strong> Analyser that scores password strength using entropy and pattern heuristics.</p>
+
+                  <ul class="project-stack" aria-label="Tech stack"><li>Python</li><li>Regex</li><li>Entropy analysis</li></ul>
+
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/Project3-Complexity_Analyzer" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
+
+              </article>
+            </li>
+            <li>
+              <article class="project-card">
+
+                <figure class="project-media img-holder">
                   <img src="./assets/img/ceasersecure.jpg" width="600" height="675" loading="lazy"
-                    alt="Caesar Secure project banner" decoding="async" class="img-cover">
+                    alt="Caesar Secure encryption tool banner" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/Project1--Ceaser_Secure" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">Caesar Secure</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Classical ciphers are a useful teaching ground for cryptanalysis.</p>
 
-                  <time class="card-text" datetime="2022-07-05">July 05, 2022</time>
+                  <p class="project-text"><strong>Solution:</strong> Implementation plus brute-force cryptanalysis of the Caesar cipher.</p>
 
-                  <h3 class="h3 card-title">Caesar Secure</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Python</li><li>Cryptography</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/Project1--Ceaser_Secure" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
+            <li>
+              <article class="project-card">
 
-            <li class="scrollbar-item">
-              <div class="card news-card">
-
-                <figure class="card-banner img-holder" style="--width: 600; --height: 675;">
+                <figure class="project-media img-holder">
                   <img src="./assets/img/cryptopixel.jpg" width="600" height="675" loading="lazy"
-                    alt="Crypto Pixel project banner" decoding="async" class="img-cover">
+                    alt="Crypto Pixel image encryption tool banner" decoding="async" class="img-cover">
                 </figure>
 
-                <a href="https://github.com/KHADERSHAREEF19/Project2-Crypto_Pixel" class="card-content" rel="noopener noreferrer">
+                <div class="project-body">
+                  <h3 class="h3 project-title">Crypto Pixel</h3>
 
-                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  <p class="project-text"><strong>Problem:</strong> Hiding data inside images is a common steganography/CTF technique.</p>
 
-                  <time class="card-text" datetime="2024-06-22">June 22, 2024</time>
+                  <p class="project-text"><strong>Solution:</strong> Pixel-level image encryption tool demonstrating reversible data hiding.</p>
 
-                  <h3 class="h3 card-title">Crypto Pixel</h3>
+                  <ul class="project-stack" aria-label="Tech stack"><li>Python</li><li>Pillow</li><li>Steganography</li></ul>
 
-                </a>
+                  <div class="project-links"><a class="project-link" href="https://github.com/KHADERSHAREEF19/Project2-Crypto_Pixel" rel="noopener noreferrer"><ion-icon name="logo-github" aria-hidden="true"></ion-icon>Source</a></div>
+                </div>
 
-              </div>
+              </article>
             </li>
-
           </ul>
 
         </div>
@@ -1426,7 +1439,7 @@
             <h2 class="h2 section-title">Get In Touch</h2>
 
             <p class="section-text">
-               STATUS: Contact Form backend running on localhost only. <br> To initiate a direct handshake, skip the form and ping me directly via WhatsApp or email.</p>
+              For roles, collaborations or a quick technical chat, reach me directly. I reply fastest by email or WhatsApp.</p>
 
             <ul class="contact-list">
 
@@ -1445,12 +1458,6 @@
               </li>
 
               <li class="contact-item">
-                <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-
-                <a href="tel:+919515787655" class="contact-link">+91 95157 87655 (India)</a>
-              </li>
-
-              <li class="contact-item">
                 <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
 
                 <a href="mailto:infa.khadershareef@gmail.com" class="contact-link">infa.khadershareef@gmail.com</a>
@@ -1459,7 +1466,7 @@
               <li class="contact-item">
                 <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
 
-                <a href="https://www.linkedin.com/in/khader-shareef-madani-129167260?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="contact-link" rel="noopener noreferrer">www.linkedin.com</a>
+                <a href="https://www.linkedin.com/in/khader-shareef-madani-129167260" class="contact-link" rel="noopener noreferrer">www.linkedin.com</a>
               </li>
               <li class="contact-item">
                 <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
@@ -1471,22 +1478,45 @@
 
           </div>
 
-          <form action="" class="contact-form">
+          <div class="contact-cta">
 
-            <input type="text" name="name" aria-label="name" placeholder="Name" required class="input-field">
+            <div class="contact-cta-card">
 
-            <input type="email" name="email_address" aria-label="email" placeholder="Email" required
-              class="input-field">
+              <h3 class="h3">Let’s talk</h3>
 
-            <textarea name="message" aria-label="message" placeholder="Message" required class="input-field"></textarea>
+              <p class="contact-cta-text">
+                Open to SOC Analyst, Cybersecurity Analyst and IAM roles in the UAE and GCC.
+                Immediate joiner — email or WhatsApp gets the fastest reply.
+              </p>
 
-            <button type="submit" class="submit-btn">
-              <span class="span">Submit</span>
+              <ul class="contact-cta-actions">
 
-              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-            </button>
+                <li>
+                  <a href="mailto:infa.khadershareef@gmail.com?subject=Opportunity%20for%20Khader%20Shareef%20Madani" class="btn btn-primary">
+                    <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                    <span>Email me</span>
+                  </a>
+                </li>
 
-          </form>
+                <li>
+                  <a href="https://wa.me/971569515117" class="btn btn-outline" rel="noopener noreferrer">
+                    <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon>
+                    <span>WhatsApp</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="./assets/KhaderShareef.pdf" class="btn btn-outline" download="Khader_Shareef_Madani_UAE_Resume.pdf">
+                    <ion-icon name="download-outline" aria-hidden="true"></ion-icon>
+                    <span>Resume</span>
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
 
         </div>
       </section>
@@ -1506,38 +1536,38 @@
     <div class="container">
 
       <p class="copyright">
-        &copy; 2026. All rights reserved by <a href="#" class="copyright-link">Khader</a>
+        &copy; 2026. All rights reserved by <a href="#home" class="copyright-link">Khader</a>
       </p>
 
       <ul class="social-list">
 
         <li>
-          <a href="https://www.instagram.com/9ot.kh4derr?igsh=OGM2dzcxNDRhaHE2" class="social-link" rel="noopener noreferrer">
-            <ion-icon name="logo-instagram"></ion-icon>
+          <a href="https://www.instagram.com/9ot.kh4derr?igsh=OGM2dzcxNDRhaHE2" class="social-link" aria-label="Instagram profile" rel="noopener noreferrer">
+            <ion-icon name="logo-instagram" aria-hidden="true"></ion-icon>
           </a>
         </li>
 
         <li>
-          <a href="https://x.com/kh4dr9019?t=ZI-oBtncMktZZLctD-XmvQ&s=08" class="social-link" rel="noopener noreferrer">
-            <ion-icon name="logo-twitter"></ion-icon>
+          <a href="https://x.com/kh4dr9019?t=ZI-oBtncMktZZLctD-XmvQ&s=08" class="social-link" aria-label="X (Twitter) profile" rel="noopener noreferrer">
+            <ion-icon name="logo-twitter" aria-hidden="true"></ion-icon>
           </a>
         </li>
 
         <li>
-          <a href="https://www.reddit.com/u/Busy_Garlic_9019/s/Wwiw8kVnxH" class="social-link" rel="noopener noreferrer">
-            <ion-icon name="logo-reddit"></ion-icon>
+          <a href="https://www.reddit.com/u/Busy_Garlic_9019/s/Wwiw8kVnxH" class="social-link" aria-label="Reddit profile" rel="noopener noreferrer">
+            <ion-icon name="logo-reddit" aria-hidden="true"></ion-icon>
           </a>
         </li>
 
         <li>
-          <a href="https://github.com/KHADERSHAREEF19" class="social-link" rel="noopener noreferrer">
-            <ion-icon name="logo-github"></ion-icon>
+          <a href="https://github.com/KHADERSHAREEF19" class="social-link" aria-label="GitHub profile" rel="noopener noreferrer">
+            <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
           </a>
         </li>
 
         <li>
-          <a href="https://youtube.com/@kkshareef181?feature=shared" class="social-link" rel="noopener noreferrer">
-            <ion-icon name="logo-youtube"></ion-icon>
+          <a href="https://youtube.com/@kkshareef181?feature=shared" class="social-link" aria-label="YouTube profile" rel="noopener noreferrer">
+            <ion-icon name="logo-youtube" aria-hidden="true"></ion-icon>
           </a>
         </li>
 

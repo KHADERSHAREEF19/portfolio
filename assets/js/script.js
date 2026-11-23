@@ -26,9 +26,18 @@ const navbar = document.querySelector("[data-navbar]");
 const navLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
 
+const syncNavbarA11y = function (isOpen) {
+  if (navToggler) {
+    navToggler.setAttribute("aria-expanded", String(isOpen));
+    navToggler.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+};
+
 const toggleNavbar = function () {
-  if (navbar) navbar.classList.toggle("active");
+  if (!navbar) return;
+  navbar.classList.toggle("active");
   if (navToggler) navToggler.classList.toggle("active");
+  syncNavbarA11y(navbar.classList.contains("active"));
 };
 
 if (navToggler) addEventOnElem(navToggler, "click", toggleNavbar);
@@ -36,9 +45,25 @@ if (navToggler) addEventOnElem(navToggler, "click", toggleNavbar);
 const closeNavbar = function () {
   if (navbar) navbar.classList.remove("active");
   if (navToggler) navToggler.classList.remove("active");
+  syncNavbarA11y(false);
 };
 
 if (navLinks.length > 0) addEventOnElem(navLinks, "click", closeNavbar);
+
+// Escape closes the mobile menu (keyboard accessibility)
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && navbar && navbar.classList.contains("active")) {
+    closeNavbar();
+    if (navToggler) navToggler.focus();
+  }
+});
+
+// Clicking outside the open menu closes it
+document.addEventListener("click", function (event) {
+  if (!navbar || !navbar.classList.contains("active")) return;
+  if (navbar.contains(event.target) || (navToggler && navToggler.contains(event.target))) return;
+  closeNavbar();
+});
 
 /**
  * header active
@@ -196,50 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.key === "Enter") {
         event.preventDefault();
         submitFlagBtn.click();
-      }
-    });
-  }
-
-  // --- D. CONTACT FORM (FLASK BACKEND) ---
-  const contactForm = document.querySelector(".contact-form");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      const submitBtn = this.querySelector("button[type='submit']");
-      const originalBtnText = submitBtn.textContent;
-
-      let formData = {
-        name: document.querySelector("[name='name']").value, 
-        email: document.querySelector("[name='email_address']").value,
-        message: document.querySelector("[name='message']").value
-      };
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
-
-      try {
-        let response = await fetch("http://127.0.0.1:5000/send-email", { 
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          alert("Message sent successfully!");
-          contactForm.reset();
-        } else {
-          alert("Failed: " + (result.error || "Unknown error"));
-        }
-      } catch (error) {
-        console.error("Connection Error:", error);
-        alert("Could not connect to the backend. Make sure app.py is running!");
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
       }
     });
   }

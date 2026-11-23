@@ -152,6 +152,36 @@ def main():
     check("no duplicate @keyframes spin", css.count("@keyframes spin {") == 1,
           f"count={css.count('@keyframes spin {')}")
 
+    # 12a. Production hygiene (System & Cleanup)
+    check("no inline style attributes", 'style="' not in html)
+    check("no inline <style> blocks", "<style" not in html)
+    check("no placeholder/dead hrefs", 'href=""' not in html and 'href="#"' not in html)
+    check("no localhost/placeholder endpoints", "127.0.0.1" not in js and "localhost" not in js)
+    check("no leftover contact form", "<form" not in html and "contactForm" not in js)
+    check("no debug console noise", "console.log" not in js)
+
+    # 12b. Every in-page anchor resolves to a real id
+    ids = set(re.findall(r'id="([^"]+)"', html))
+    anchors = set(re.findall(r'href="#([^"]+)"', html))
+    check("in-page anchors all resolve", not (anchors - ids), f"broken: {sorted(anchors - ids)}")
+
+    # 12c. Accessibility
+    check("nav toggle exposes aria-expanded", 'aria-expanded' in html)
+    check("nav toggle controls the nav", 'aria-controls="primary-nav"' in html)
+    check("icon-only social links labelled",
+          all("aria-label" in m for m in re.findall(r'<a [^>]*class="social-link"[^>]*>', html)))
+    check("focus-visible styling present", ":focus-visible" in css)
+
+    # 12d. Project cards are structured (problem/solution/stack/links)
+    proj = html[html.find('id="projects"'):html.find('id="ctf"')]
+    check("projects show problem + solution", "Problem:" in proj and "Solution:" in proj)
+    check("projects list a tech stack", "project-stack" in proj)
+    card_count = proj.count(chr(34).join(["class=", "project-card"]))
+    check("projects have 12 cards", card_count == 12, f"found {card_count}")
+
+    # 12e. Card content is not hover-gated (touch/keyboard users)
+    check("card content always visible", "opacity: 1" in css.split(".card-content {")[1][:600])
+
     # 13a. Resume PDF: 1 page, real author metadata, ATS keywords (point 1/2)
     resume = ROOT / "assets" / "KhaderShareef.pdf"
     check("resume pdf exists", resume.exists())
