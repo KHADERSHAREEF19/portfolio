@@ -12,7 +12,7 @@ body {
     --theme-color: hsl(10, 100%, 57%);
     --light-gray: hsl(0, 0%, 80%);
     --gray-x-11: hsl(0, 0%, 73%);
-    --dim-gray: hsl(0, 0%, 44%);
+    --dim-gray: hsl(0, 0%, 40%); /* 5.7:1 on white — AA for body text */
     --cultured: hsl(0, 0%, 98%);
     --black_10: hsl(0, 0%, 0%, 0.1);
     --black_20: hsl(0, 0%, 0%, 0.2);
@@ -164,9 +164,15 @@ body {
   .section { padding-block: var(--section-padding); }
   
   .img-holder {
-    aspect-ratio: var(--width) / var(--height);
+    /* Default 8:9 card aspect; the hero overrides it below. */
+    aspect-ratio: var(--width, 600) / var(--height, 675);
     background-color: var(--light-gray);
     overflow: hidden;
+  }
+
+  .hero-banner.img-holder {
+    --width: 640;
+    --height: 840;
   }
   
   .has-before {
@@ -218,8 +224,9 @@ body {
   .h3 { font-size: var(--fs-18); }
   
   .section-title { margin-block-end: 40px; }
+
+  :is(.portfolio, .projects) .section-title { margin-block-end: 60px; }
   
-  :is(.portfolio, .news) .section-title { margin-block-end: 60px; }
   
   .card {
     position: relative;
@@ -227,31 +234,41 @@ body {
     border-radius: var(--radius-10);
   }
   
+  /*
+   * Card metadata sits in a readable panel at the bottom of the artwork.
+   * It must always be visible: the original design started at opacity: 0
+   * and only revealed on :hover/:active, which hid every title and link on
+   * touch devices and for keyboard users.
+   */
   .card-content {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
-    background-color: var(--white);
+    inset: auto 10px 10px 10px;
+    background-color: hsl(0, 0%, 100%, 0.96);
     border-radius: var(--radius-8);
-    padding: 20px 25px;
+    padding: 14px 16px;
     display: grid;
-    align-content: flex-end;
-    opacity: 0;
+    gap: 2px;
+    align-content: end;
+    opacity: 1;
     transition: var(--transition);
   }
   
-  .card:is(:hover, :focus-within, :active) .card-content { opacity: 1; }
-  
   .card-content > ion-icon {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 12px;
+    right: 14px;
     color: var(--black);
-    font-size: 40px;
-    transform: rotate(-45deg);
+    font-size: 20px;
   }
+
+  .card-content .card-title {
+    font-size: 1.45rem;
+    line-height: 1.35;
+    padding-right: 22px;
+    color: var(--black);
+  }
+
+  .card-content .card-text { font-size: 1.2rem; color: var(--dim-gray); }
   
   .card-text { font-family: var(--ff-poppins); }
   
@@ -376,26 +393,7 @@ body {
   }
   
   .hero-title { margin-block: 10px 20px; }
-  
-  .hero-list { margin-block-end: 25px; }
-  
-  .hero-list .list-link {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-    color: var(--black);
-    font-size: var(--fs-17);
-    padding-block: 6px;
-  }
-  
-  .hero-list .list-link:is(:hover, :focus) { color: var(--theme-color); }
-  
-  .hero-list .list-link .span,
-  .hero-list .list-link ion-icon { transition: var(--transition); }
-  
-  .hero-list .list-link:is(:hover, :focus) ion-icon { transform: rotate(-45deg); }
-  
+
   /* Hero: primary actions */
   .hero-actions {
     display: flex;
@@ -704,11 +702,6 @@ body {
     transition: var(--transition);
   }
   
-  .pricing-card .card-price {
-    color: var(--color);
-    font-family: var(--ff-poppins);
-    transition: var(--transition);
-  }
   
   .pricing-card:is(:hover, :focus-within) {
     background-color: var(--theme-color);
@@ -724,7 +717,6 @@ body {
     #NEWS
   \*-----------------------------------*/
   
-  .news-card .card-text { margin-block-end: 5px; }
   
   
   
@@ -758,45 +750,12 @@ body {
     font-family: var(--ff-poppins);
   }
   
-  .input-field {
-    color: var(--black);
-    font-family: var(--ff-poppins);
-    font-size: var(--fs-13);
-    letter-spacing: 1.4px;
-    border: 1px solid var(--black_10);
-    padding: 10px;
-    margin-block-end: 30px;
-    outline: none;
-    transition: border var(--transition);
-  }
   
-  .input-field:focus { border-color: var(--black_30); }
   
-  textarea.input-field {
-    resize: vertical;
-    min-height: 45px;
-    height: 45px;
-    max-height: 100px;
-  }
   
-  .submit-btn {
-    background-color: var(--theme-color);
-    color: var(--white);
-    width: 100%;
-    font-size: var(--fs-17);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
-    transition: var(--transition);
-  }
   
-  .submit-btn:is(:hover, :focus) { background-color: var(--black); }
   
-  .submit-btn ion-icon { transition: var(--transition); }
   
-  .submit-btn:is(:hover, :focus) ion-icon { transform: rotate(-45deg); }
   
   
   
@@ -914,12 +873,7 @@ body {
   
     .h3 { --fs-18: 2rem; }
   
-    .card-content { padding: 30px 35px; }
-  
-    .card-content > ion-icon {
-      top: 30px;
-      right: 30px;
-    }
+    .card-content { padding: 16px 18px; }
   
   
   
@@ -1199,7 +1153,6 @@ body {
   
     .scrollbar-item { min-width: calc(33.33% - 26.66px); }
   
-    :is(.portfolio, .news) .section-title { margin-block-end: 80px; }
   
   
   
@@ -1367,13 +1320,6 @@ body {
 }
 
 /* If JS is disabled, keep timeline visible */
-@media (prefers-reduced-motion: reduce) {
-  .experience .timeline-item {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
 /* The glowing dots on the line */
 .timeline-dot {
   position: absolute;
@@ -1460,29 +1406,8 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.terminal-header {
-  background: #1a1a1a;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #333;
-}
 
-.dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
 
-.terminal-title {
-  color: #888;
-  font-size: 4.1rem; /* Larger header text */
-  margin-left: 10px;
-}
 
 .terminal-body {
   padding: 40px; /* More breathing room */
@@ -1615,27 +1540,8 @@ body {
   0% { transform: scale(0.8); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
-/* --- CTF ERROR ANIMATION (ACCESS DENIED) --- */
-@keyframes errorShake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-15px); } /* Pushed from 8px to 15px */
-  50% { transform: translateX(15px); }
-  75% { transform: translateX(-15px); }
-}
-
-.terminal-error-state {
-  animation: errorShake 0.4s ease-in-out !important;
-  border: 2px solid #ff5f56 !important; /* Made the border thicker */
-  box-shadow: 0 0 30px rgba(255, 95, 86, 0.6) !important; 
-}
 
 /* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .ring-1, .ring-2, .ring-3, .cursor, .slide-down-btn {
-    animation: none;
-  }
-  html { scroll-behavior: auto; }
-}
 
 
 
@@ -1750,3 +1656,191 @@ body {
 @media (min-width: 768px) {
   .hero-actions .btn { min-width: 190px; }
 }
+
+
+/*-----------------------------------*\
+  #PROGRESS BARS (no inline styles)
+\*-----------------------------------*/
+
+.progress[data-progress] { width: 0; }
+.progress[data-progress="95"] { width: 95%; }
+.progress[data-progress="90"] { width: 90%; }
+.progress[data-progress="85"] { width: 85%; }
+.progress[data-progress="80"] { width: 80%; }
+.progress[data-progress="77"] { width: 77%; }
+.progress[data-progress="70"] { width: 70%; }
+.progress[data-progress="60"] { width: 60%; }
+.progress[data-progress="30"] { width: 30%; }
+
+
+
+
+
+
+
+/*-----------------------------------*\
+  #PROJECTS
+\*-----------------------------------*/
+
+.projects { background-color: var(--white); }
+
+.projects-intro {
+  color: var(--dim-gray);
+  max-width: 60ch;
+  margin-block: 10px 34px;
+  line-height: 1.7;
+}
+
+.project-list {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.project-card {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: var(--white);
+  border: 1px solid var(--black_10);
+  border-radius: var(--radius-10);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px hsla(0, 0%, 0%, 0.12);
+  }
+}
+
+.project-card.featured { border-top: 4px solid var(--theme-color); }
+
+.project-media {
+  --width: 600;
+  --height: 380;
+  border-block-end: 1px solid var(--black_10);
+}
+
+.project-body {
+  padding: 20px 20px 22px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.project-title {
+  color: var(--black);
+  font-family: var(--ff-poppins);
+  font-size: 1.7rem;
+  font-weight: var(--fw-700);
+  line-height: 1.3;
+}
+
+.project-text {
+  color: var(--dim-gray);
+  font-size: 1.35rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.project-text strong { color: var(--black); font-weight: var(--fw-600); }
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0 4px;
+}
+
+.project-stack li {
+  background-color: var(--cultured);
+  border: 1px solid var(--black_10);
+  color: var(--black);
+  border-radius: 999px;
+  font-size: 1.15rem;
+  font-weight: var(--fw-500);
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-block-start: 4px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--theme-color);
+  font-size: 1.3rem;
+  font-weight: var(--fw-600);
+  text-decoration: none;
+  border-block-end: 1px solid transparent;
+}
+
+.project-link ion-icon { font-size: 15px; }
+
+.project-link:is(:hover, :focus-visible) {
+  border-block-end-color: currentColor;
+}
+
+@media (min-width: 640px) {
+  .project-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+  .project-list { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .project-body { padding: 22px 22px 24px; }
+}
+
+/* Visible keyboard focus everywhere (accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--theme-color);
+  outline-offset: 3px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .ring-1,
+  .ring-2,
+  .ring-3,
+  .cursor,
+  .slide-down-btn,
+  .project-card {
+    animation: none;
+    transition: none;
+  }
+
+  .experience .timeline-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .project-card:hover { transform: none; }
+}
+
+
+/*-----------------------------------*\
+  #CONTRAST FIXES
+\*-----------------------------------*/
+
+/*
+ * The brand orange (#ff9c1a family) is 3.4:1 on white — fine for large
+ * display type and solid button fills, not for body-size links. These
+ * overrides keep the brand hue but reach AA for text.
+ */
+:root { --link-color: hsl(10, 78%, 38%); }  /* 7.1:1 on white */
+
+.project-link { color: var(--link-color); }
